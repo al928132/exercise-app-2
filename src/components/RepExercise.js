@@ -46,6 +46,11 @@ export default function RepExercise({ navigation, route }) {
         onPress={() => navigation.navigate('Home')}
         type="outline"
       />
+      <Button
+        title="Back"
+        onPress={() => navigation.goBack()}
+        type="outline"
+      />
     </View>
   );
 }

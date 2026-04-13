@@ -53,6 +53,11 @@ export default function DurationExercise({ navigation, route }) {
         onPress={() => navigation.navigate('Home')}
         type="outline"
       />
+      <Button
+        title="Back"
+        onPress={() => navigation.goBack()}
+        type="outline"
+      />
     </View>
   );
 }
