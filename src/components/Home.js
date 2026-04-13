@@ -36,12 +36,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   title: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   list: {
     width: '100%',
     marginTop: 24,
-    gap: 12
+    gap: 12,
   },
   buttonContainer: {
     width: '100%',
