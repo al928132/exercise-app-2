@@ -42,7 +42,7 @@ export default function DurationExercise({ navigation, route }) {
       <Text h3>{exercise.name}</Text>
       <Text h4>{mins}:{secs}:{mills}</Text>
       <Button title={running ? 'Pause' : 'Start'} onPress={startStop} />
-      <Button title="Reset" onPress={() => { setTimer(0); setRunning(false); }} />
+      <Button title="Reset" onPress={() => { clearInterval(intervalRef.current); setTimer(0); setRunning(false); }} />
       <Button
         title={`Suggested: ${exercise.suggested.name}`}
         onPress={goToSuggested}
