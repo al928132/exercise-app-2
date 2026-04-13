@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "exercise-app-2",
+    "slug": "exercise-app-2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"]
+  }
+}

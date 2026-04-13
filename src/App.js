@@ -1,39 +1,55 @@
-import './App.css';
-import {useState} from "react";
-import RepExercise from "./components/RepExercise";
-import DurationExercise from "./components/DurationExercise";
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, Text } from 'react-native-elements';
+import RepExercise from './components/RepExercise';
+import DurationExercise from './components/DurationExercise';
 
 
 function App() {
   let screen;
-  let [currentScreen, setCurrentScreen] = useState("menu")
-  let [currentExercise, setCurrentExercise] = useState("none")
+  let [currentScreen, setCurrentScreen] = useState('menu');
+  let [currentExercise, setCurrentExercise] = useState('none');
 
-  if (currentScreen === "menu"){
+  if (currentScreen === 'menu') {
     screen =
-    <>
-    <h1>Execises</h1>
-    <ul>
-    <li><button onClick={() => {setCurrentExercise("Push-ups"); setCurrentScreen("reps")}}>Push-ups</button></li>
-      <li><button onClick={() => {setCurrentExercise("Planks"); setCurrentScreen("timer")}}>Planks</button></li>
-      <li><button onClick={() => {setCurrentExercise("Running"); setCurrentScreen("timer")}}>Running</button></li>
-      <li><button onClick={() => {setCurrentExercise("Swimming"); setCurrentScreen("timer")}}>Swimming</button></li>
-      <li><button onClick={() => {setCurrentExercise("Pull-ups"); setCurrentScreen("reps")}}>Pull-ups</button></li>
-    </ul>
-    </>
-  }
-  else if(currentScreen === "timer"){
-    screen = <DurationExercise name={currentExercise}/>
-  }
-  else if(currentScreen === "reps"){
-    screen = <RepExercise name={currentExercise}/>
+      <View style={styles.container}>
+        <Text h3>Exercises</Text>
+        <View style={styles.buttonGroup}>
+          <Button title="Push-ups" onPress={() => { setCurrentExercise('Push-ups'); setCurrentScreen('reps'); }} />
+          <Button title="Planks" onPress={() => { setCurrentExercise('Planks'); setCurrentScreen('timer'); }} />
+          <Button title="Running" onPress={() => { setCurrentExercise('Running'); setCurrentScreen('timer'); }} />
+          <Button title="Swimming" onPress={() => { setCurrentExercise('Swimming'); setCurrentScreen('timer'); }} />
+          <Button title="Pull-ups" onPress={() => { setCurrentExercise('Pull-ups'); setCurrentScreen('reps'); }} />
+        </View>
+      </View>;
+  } else if (currentScreen === 'timer') {
+    screen = <DurationExercise name={currentExercise} />;
+  } else if (currentScreen === 'reps') {
+    screen = <RepExercise name={currentExercise} />;
   }
 
   return (
-    <div className="App">
+    <View style={styles.root}>
       <>{screen}</>
-    </div>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24
+  },
+  buttonGroup: {
+    width: '100%',
+    marginTop: 24,
+    gap: 12
+  }
+});
 
 export default App;
