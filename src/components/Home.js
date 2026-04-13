@@ -31,15 +31,17 @@ export default function Home({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 24,
   },
   title: {
-    textAlign: 'center',
-    marginBottom: 24,
+    textAlign: 'center'
   },
   list: {
-    gap: 12,
+    width: '100%',
+    marginTop: 24,
+    gap: 12
   },
   buttonContainer: {
     width: '100%',
