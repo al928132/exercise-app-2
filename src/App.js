@@ -13,7 +13,7 @@ function App() {
   if (currentScreen === 'menu') {
     screen =
       <View style={styles.container}>
-        <Text h3>Execises</Text>
+        <Text h3>Exercises</Text>
         <View style={styles.buttonGroup}>
           <Button title="Push-ups" onPress={() => { setCurrentExercise('Push-ups'); setCurrentScreen('reps'); }} />
           <Button title="Planks" onPress={() => { setCurrentExercise('Planks'); setCurrentScreen('timer'); }} />

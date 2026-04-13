@@ -7,16 +7,16 @@ export default function DurationExercise({ name }) {
   let [timer, setTimer] = useState(0);
   const intervalRef = useRef(null);
 
-  let updateTimer = useCallback(() => {
-    if (running) {
-      setTimer((currentValue) => currentValue + 10);
-    }
-  }, [running]);
-
   useEffect(() => {
-    intervalRef.current = setInterval(updateTimer, 10);
+    if (!running) {
+      clearInterval(intervalRef.current);
+      return undefined;
+    }
+    intervalRef.current = setInterval(() => {
+      setTimer((currentValue) => currentValue + 10);
+    }, 10);
     return () => clearInterval(intervalRef.current);
-  }, [running, updateTimer]);
+  }, [running]);
 
   let startStop = useCallback(() => {
     setRunning(!running);
